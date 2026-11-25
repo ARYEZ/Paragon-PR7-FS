@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- The family's list knows the newest apps (PR7-HB, PR7-FS, PR7-AR, PR7-WM), so links between apps and Check for Updates find them.
+
 ## 0.1.0
 
 - First release: folder comparison and sync that works the way FreeFileSync works.
