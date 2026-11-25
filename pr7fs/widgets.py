@@ -322,6 +322,27 @@ def _icon_path(name: str) -> QPainterPath:
     elif name == "refresh":        # PR7-SM
         p.moveTo(19.5, 12); p.arcTo(QRectF(4.5, 4.5, 15, 15), 0, 300); p.moveTo(19.5, 5.5); p.lineTo(19.5, 11)
         p.lineTo(14, 11)
+    elif name == "compare":        # PR7-FS: two pages side by side with an equals sign
+        p.addRoundedRect(QRectF(2.5, 4, 7.5, 16), 1.2, 1.2); p.addRoundedRect(QRectF(14, 4, 7.5, 16), 1.2, 1.2)
+        p.moveTo(10.8, 10.5); p.lineTo(13.2, 10.5); p.moveTo(10.8, 13.5); p.lineTo(13.2, 13.5)
+    elif name == "sync":           # PR7-FS: two arrows round a circle
+        p.moveTo(19.5, 9); p.arcTo(QRectF(4.5, 4.5, 15, 15), 20, 160); p.moveTo(19.5, 4.5); p.lineTo(19.8, 9.2)
+        p.lineTo(15.2, 9.4)
+        p.moveTo(4.5, 15); p.arcTo(QRectF(4.5, 4.5, 15, 15), 200, 160); p.moveTo(4.5, 19.5); p.lineTo(4.2, 14.8)
+        p.lineTo(8.8, 14.6)
+    elif name == "filter":         # PR7-FS: a funnel
+        p.moveTo(3, 5); p.lineTo(21, 5); p.lineTo(14, 13); p.lineTo(14, 19.5); p.lineTo(10, 21); p.lineTo(10, 13)
+        p.closeSubpath()
+    elif name == "swap":           # PR7-FS: left and right arrows
+        p.moveTo(4, 9); p.lineTo(20, 9); p.moveTo(16, 5); p.lineTo(20, 9); p.lineTo(16, 13)
+        p.moveTo(20, 15); p.lineTo(4, 15); p.moveTo(8, 11); p.lineTo(4, 15); p.lineTo(8, 19)
+    elif name == "gear":           # PR7-FS: settings
+        p.addEllipse(QRectF(9, 9, 6, 6))
+        import math
+        for i in range(8):
+            a = math.radians(i * 45)
+            p.moveTo(12 + 6.2 * math.cos(a), 12 + 6.2 * math.sin(a)); p.lineTo(12 + 9 * math.cos(a), 12 + 9 * math.sin(a))
+        p.addEllipse(QRectF(5.8, 5.8, 12.4, 12.4))
     elif name == "chart":
         p.moveTo(3.5, 20.5); p.lineTo(20.5, 20.5); p.moveTo(4, 16); p.lineTo(9, 10); p.lineTo(13, 13.5); p.lineTo(20, 5)
     elif name == "app":            # a program: a window with its title bar
