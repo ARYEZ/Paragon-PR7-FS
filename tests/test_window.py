@@ -172,7 +172,7 @@ def test_batch_runs_without_a_window(sides, tmp_path):
     config.save(cfg, str(path))
     log = tmp_path / "log.txt"
     assert app.batch(str(path), str(log)) == 0
-    assert tree(right) == tree(left) and (trash / "stale.txt").exists() and "→3" in log.read_text()   # sub, a.txt, sub/b.txt
+    assert tree(right) == tree(left) and (trash / "stale.txt").exists() and "→3" in log.read_text(encoding="utf-8")   # sub, a.txt, sub/b.txt
     config.save(config.Config(pairs=[[str(left), str(tmp_path / "missing")]]), str(path))
     assert app.batch(str(path), str(log)) == 2
 
